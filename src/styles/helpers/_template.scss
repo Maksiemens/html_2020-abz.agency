@@ -1,0 +1,83 @@
+%base-title {
+  @include font-primary(50px, $color-title-primary, 400);
+  text-align: center;
+}
+
+%base-subtitle {
+  @extend %base-title;
+  @include font-primary(16px, $color-subtitle-primary, 400);
+}
+
+%base-button {
+  @include font-primary(16px, $color-button-text, 600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 210px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: $background-color-button;
+  transition: all 0.25s;
+
+  &:hover {
+    background-color: $background-color-button-hover;
+  }
+
+  &:disabled {
+    @include font-primary(16px, $color-button-text-disabled, 600);
+    background-color: $background-color-button-disabled;
+    cursor: not-allowed;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+%base-flat-button {
+  @include font-primary(16px, $color-button-text, 600);
+  display: flex;
+  width: 100%;
+  transition: all 0.25s;
+
+  &:hover {
+    @include font-primary(16px, $color-button-text-hover, 600);
+  }
+
+  &:disabled {
+    @include font-primary(16px, $color-button-text-disabled, 600);
+    cursor: not-allowed;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+
+%tooltip {
+  &::after {
+    @include font-primary(14px, $color-text-secondary, 400);
+    content: attr(data-tooltip-text);
+    display: block;
+    position: absolute;
+    top: -9999em;
+    padding: 5px 10px;
+    box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.11);
+    border-radius: 4px;
+    background-color: $background-color-tooltip;
+    transform: translate(20px, 0);
+    opacity: 0;
+    transition: all 0.25s;
+  }
+
+  &:hover {
+    &::after {
+      top: auto;
+      opacity: 1;
+      transform: translate(20px, 20px);
+    }
+  }
+}
