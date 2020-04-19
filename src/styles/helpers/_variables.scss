@@ -6,8 +6,9 @@ $_gondola: 	        #160c0d;
 $_shark: 	          #212529;
 $_mine-shaft: 	    #393939;
 $_pampas: 	        #f8f7f5;
-$_hit-gray: 	      #adb5bd;
+$_athens-gray: 	    #eceef1;
 $_gray: 	          #8d8c8c;
+$_hit-gray: 	      #adb5bd;
 $_boulder: 	        #7b7b7b;
 $_trout: 	          #495057;
 $_bombay: 	        #b2b9c0;
@@ -15,6 +16,7 @@ $_iron: 	          #d4d9de;
 $_alto: 	          #d7d7d7;
 $_gallery: 	        #ececec;
 $_ghost: 	          #ced4da;
+$_silver: 	        #ced4da;
 
 $_valencia: 	      #d24335;
 $_burnt-sienna: 	  #ef5b4c;
@@ -51,21 +53,22 @@ $background-color-button-disabled:  $_alto;
 
 $background-color-tooltip:          $_black;
 
+$background-color-overlay:          rgba($_black, 0.5);
+$background-color-close:            $_boulder;
+$color-border-modal:                $_silver;
 
 
-$color-border-dark:         $_white;
-$color-border-light:        $_white;
 
-$color-border:              $_white;
-$color-border-dark:         $_white;
-$color-border-light:        $_white;
+$color-border:                      $_white;
+// $color-border-dark:         $_white;
+$color-border-light:                $_athens-gray;
 
-$color-highlight:           $_white;
+// $color-highlight:           $_white;
 
-$color-link:                $_white;
-$color-link-dark:           $_white;
-$color-link-light:          $_white;
+// $color-link:                $_white;
+// $color-link-dark:           $_white;
+// $color-link-light:          $_white;
 
-$color-text:                $_white;
-$color-text-light:          $_white;
-$color-text-lightest:       $_white;
+// $color-text:                $_white;
+// $color-text-light:          $_white;
+// $color-text-lightest:       $_white;
