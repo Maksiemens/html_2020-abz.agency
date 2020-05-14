@@ -1,19 +1,40 @@
-%base-title {
-  @include font-primary(50px, $color-title-primary, 400);
+%base-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
+%base-title {
+  @include font-primary(50px, $color-title-primary, 400);
+
+  @include for-tablet-landscape-up {
+    @include font-primary(40px, $color-title-primary, 400);
+  }
+
+  @include for-tablet-portrait-up {
+    @include font-primary(30px, $color-title-primary, 400);
+  }
+}
+
 %base-subtitle {
-  @extend %base-title;
-  @include font-primary(16px, $color-subtitle-primary, 400);
+  margin-top: 20px;
+  @include font-primary(16px, $color-subtitle-primary, 400, 24px);
+  max-width: 440px;
+
+  @include for-tablet-landscape-up {
+    @include font-primary(16px, $color-subtitle-primary, 400, 22px);
+  }
 }
 
 %base-button {
-  @include font-primary(16px, $color-button-text, 600);
+  @include font-primary(16px, $color-button, 600);
   display: flex;
   align-items: center;
   justify-content: center;
   // width: 100%;
+  min-width: 210px;
   padding: 10px 20px;
   border-radius: 4px;
   background-color: $background-color-button;
@@ -24,7 +45,7 @@
   }
 
   &:disabled {
-    @include font-primary(16px, $color-button-text-disabled, 600);
+    @include font-primary(16px, $color-button-disabled, 600);
     background-color: $background-color-button-disabled;
     cursor: not-allowed;
   }
@@ -36,17 +57,16 @@
 }
 
 %base-flat-button {
-  @include font-primary(16px, $color-button-text, 600);
+  @include font-primary(16px, $color-button-flat, 600);
   display: flex;
-  width: 100%;
   transition: all 0.25s;
 
   &:hover {
-    @include font-primary(16px, $color-button-text-hover, 600);
+    @include font-primary(16px, $color-button-flat-hover, 600);
   }
 
   &:disabled {
-    @include font-primary(16px, $color-button-text-disabled, 600);
+    @include font-primary(16px, $color-button-disabled, 600);
     cursor: not-allowed;
   }
 

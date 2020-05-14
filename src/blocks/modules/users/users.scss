@@ -2,31 +2,55 @@
   padding: 160px 0;
   background-color: $background-color-secondary;
 
-  .heading {
+  @include for-tablet-landscape-up {
+    padding: 110px 0;
+  }
 
-    &__title {
-      @extend %base-title;
-    }
+  @include for-tablet-portrait-up {
+    padding: 75px 0;
+  }
 
-    &__subtitle {
-      @extend %base-subtitle;
-      margin-top: 30px;
-    }
+  &__header {
+    @extend %base-heading;
+  }
+
+  &__title {
+    @extend %base-title;
+  }
+
+  &__subtitle {
+    @extend %base-subtitle;
   }
 
   .content {
-    margin-top: 80px;
+    margin-top: 75px;
+
+    @include for-tablet-portrait-up {
+      margin-top: 35px;
+    }
   }
 
   .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-column-gap: 135px;
-    grid-row-gap: 60px;
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 60px 135px;
+
+      @include for-tablet-landscape-up {
+        grid-gap: 60px 50px;
+      }
+
+      @include for-tablet-portrait-up {
+        grid-gap: 35px 50px;
+      }
+    }
 
     &__action {
-      grid-column: 1 / -1;
-      justify-self: center;
+      margin-top: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     &__button {
@@ -56,7 +80,7 @@
     }
 
     &__body {
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     &__body-title {
@@ -65,33 +89,56 @@
     }
 
     &__body-list {
-      margin-top: 12px;
+      margin-top: 10px;
     }
 
     &__body-item {
       @include font-primary(16px, $color-text-primary, 400, 24px);
       text-align: center;
+    }
+
+    &__body-link {
+      @include font-primary(16px, $color-link-secondary, 400, 24px);
       display: flex;
       align-items: center;
       justify-content: center;
       min-width: 0;
 
-      // .active-tooltip {
-      //   @extend %tooltip;
-      // }
-
-      position: relative;
-
       &:hover {
-        .tooltiptext {
-          visibility: visible;
-        }
+        @include font-primary(16px, $color-link-hover, 400, 24px);
       }
 
+      &[data-tooltip] {
+        position: relative;
+
+        &::before {
+          content: attr(data-tooltip);
+          @include font-primary(14px, $color-text-secondary, 400);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 5px 15px;
+          position: absolute;
+          bottom: -50px;
+          left: 50%;
+          background-color: #000000;
+          border-radius: 4px;
+          box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.11);
+          visbility: hidden;
+          opacity: 0;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 1;
+            visiblity: visible;
+          }
+        }
+      }
     }
 
-    &__body-link {
-      @include font-primary(16px, $color-link-text, 400, 24px);
+    &__body-text {
+      @include font-primary(16px, $color-link-secondary, 400, 24px);
       text-align: center;
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
@@ -99,13 +146,8 @@
       overflow: hidden;
       transition: all 0.25s;
 
-
-
       &:hover {
         @include font-primary(16px, $color-link-hover, 400, 24px);
-
-
-
       }
     }
   }
@@ -122,5 +164,6 @@
 
   /* Position the tooltip */
   position: absolute;
-  z-index: 1;
+  z-index: 200;
 }
+

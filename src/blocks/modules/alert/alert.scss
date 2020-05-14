@@ -13,57 +13,61 @@
   border: 1px solid $color-border-modal;
   background-color: $background-color-primary;
 
-  .heading {
+  &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-
-    &__title {
-      @include font-primary(24px, $color-title-primary, 400, 30px);
-    }
-
-    &__button {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        width: 4px;
-        height: 15px;
-        background-color: $background-color-close;
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        transform: rotate(-45deg);
-      }
-    }
-  }
-
-  .content {
-    border: 1px solid $color-border-light;
     padding: 15px;
+  }
 
-    &__text {
-      @include font-primary(16px, $color-text-primary, 400, 24px);
+  &__header-title {
+    @include font-primary(24px, $color-title-primary, 400, 30px);
+  }
+
+  &__header-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 15px;
+      background-color: $background-color-close;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
     }
   }
 
-  .footer {
+  &__content {
+    border: {
+      top: 1px solid $color-border-light;
+      bottom: 1px solid $color-border-light;
+    }
+    padding: 20px 15px;
+  }
+
+  &__text {
+    @include font-primary(16px, $color-text-primary, 400, 24px);
+  }
+
+  &__footer {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 15px;
+  }
 
-    &__button {
-      @extend %base-button;
-    }
+  &__footer-button {
+    @extend %base-button;
+    min-width: 0;
   }
 }
